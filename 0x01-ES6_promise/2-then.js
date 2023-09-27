@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 export default function handleResponseFromAPI(promise) {
   const body = { status: 200, body: 'Success' };
 
