@@ -51,3 +51,22 @@ in your project directory, install jest, babel, and ESLint:
 Return a Promise using this prototype function `getResponseFromAPI()`
 
 File: [0-promise.js](0-promise.js/)
+
+### 1. Don't make a promise...if you know you can't keep it mandatory
+
+Using the prototype below, return a Promise. The parameter is a boolean.
+
+File: [1-promise.js](1-promise.js/)
+
+### 2. Catch me if you can! mandatory
+
+Using the function prototype below:
+
+```function handleResponseFromAPI(promise)```
+
+Append three handlers to the function:
+
+- If the Promise resolves, return an object `{ status: 200, body: 'success' }`
+- When the promise rejects, return an empty Error object
+
+File: [2-then.js](2-then.js/)
