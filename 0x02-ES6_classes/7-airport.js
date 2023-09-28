@@ -12,12 +12,12 @@ export default class Airport {
     return this._code;
   }
 
-  set code(code) {
-    this._code = code;
+  set code(value) {
+    this._code = value;
   }
 
-  set name(name) {
-    this._name = name;
+  set name(value) {
+    this._name = value;
   }
 
   toString() {
