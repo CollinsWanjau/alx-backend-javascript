@@ -7,7 +7,7 @@ export default class Airport {
   get name() {
     return this._name;
   }
-  
+
   set name(value) {
     this._name = value;
   }
@@ -23,4 +23,8 @@ export default class Airport {
   toString() {
     return `[Object ${this.code}]`;
   }
+
+// toString() {
+//     return `Airport [${this.code}] { _name: '${this.name}', _code: '${this.code}' }`;
+//   }
 }
