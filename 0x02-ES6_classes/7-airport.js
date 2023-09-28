@@ -7,6 +7,10 @@ export default class Airport {
   get name() {
     return this._name;
   }
+  
+  set name(value) {
+    this._name = value;
+  }
 
   get code() {
     return this._code;
@@ -14,10 +18,6 @@ export default class Airport {
 
   set code(value) {
     this._code = value;
-  }
-
-  set name(value) {
-    this._name = value;
   }
 
   toString() {
