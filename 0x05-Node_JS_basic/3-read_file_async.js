@@ -1,6 +1,6 @@
 const { readFile } = require('fs');
 
-function countStudents(path) {
+function countStudents (path) {
   const students = {};
   const fields = {};
   let length = 0;
