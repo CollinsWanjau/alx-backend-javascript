@@ -9,7 +9,7 @@
 // CSV file can contain empty lines (at the end) - and they are not a valid student!
 const fs = require('fs');
 
-function countStudents (path) {
+function countStudents(path) {
   const students = {};
   const fields = {};
   let length = 0;
