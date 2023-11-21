@@ -2,14 +2,16 @@
 // HTTP server should listen on port 1245
 // It should return plain text
 // When the URL path is /, it should display Hello Holberton School! in the page body
+// eslint-disable-next-line max-len
 // When the URL path is /students, it should display This is the list of our students followed by the same content as the file 3-read_file_async.js (with and without the database) - the name of the database must be passed as argument of the file
 // CSV file can contain empty lines (at the end) - and they are not a valid student!
 const http = require('http');
 const { readFile } = require('fs');
-const hostname = '127.0.0.1';
-const port = 12345;
 
-function countStudents (path) {
+const hostname = '127.0.0.1';
+const port = 1245;
+
+function countStudents(path) {
   const students = {};
   const fields = {};
   let length = 0;
@@ -53,20 +55,19 @@ const app = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   // eslint-disable-next-line default-case
-  switch (req.url) {
-    case '/':
-      res.write('Hello Holberton School!');
-      res.end();
-      break;
-    case '/students':
-      res.write('This is the list of our students\n');
-      countStudents(process.argv[2].toString()).then((output) => {
-        const slicedOutput = output.slice(0, -1);
-        res.end(slicedOutput);
-      }).catch(() => {
-        res.statusCode = 404;
-        res.end('Cannot load the database');
-      });
+  if (req.url === '/') {
+    res.write('Hello Holberton School!');
+    res.end();
+  }
+  if (req.url === '/students') {
+    res.write('This is the list of our students\n');
+    countStudents(process.argv[2].toString()).then((output) => {
+      const slicedOutput = output.slice(0, -1);
+      res.end(slicedOutput);
+    }).catch(() => {
+      res.statusCode = 404;
+      res.end('Cannot load the database');
+    });
   }
 });
 
