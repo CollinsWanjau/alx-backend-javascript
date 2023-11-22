@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha '*.test.js'"
+    "test": "./node_modules/mocha/bin/_mocha --require babel-register --exit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-register": "^6.26.0",
     "mocha": "^10.2.0"
   }
 }
