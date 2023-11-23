@@ -6,20 +6,31 @@ const Utils = require('./utils');
 // const { after } = require("mocha");
 // const { describe } = require("node:test")
 
-describe('Wrap existing code', () => {
-  const sandbox = sinon.createSandbox();
+// describe('Wrap existing code', () => {
+//   const sandbox = sinon.createSandbox();
 
-  beforeEach(() => {
-    sandbox.spy(Utils, 'calculateNumber');
-  });
+//   beforeEach(() => {
+//     sandbox.spy(Utils, 'calculateNumber');
+//   });
 
-  afterEach(() => {
-    sandbox.restore();
-  });
+//   afterEach(() => {
+//     sandbox.restore();
+//   });
 
-  it('sendPaymentRequestToApi should be equal to calculateNumber', () => {
+//   it('sendPaymentRequestToApi should be equal to calculateNumber', () => {
+//     sendPaymentRequestToApi(100, 20);
+//     expect(Utils.calculateNumber.calledOnce).to.be.true;
+//     expect(Utils.calculateNumber.calledWith('SUM', 100, 20)).to.be.true;
+//   });
+// });
+describe('Wrapping existing function', () => {
+  // create the spy / wrapper of an existing function
+  const utilspy = sinon.spy(Utils, 'calculateNumber');
+
+  it('validate the usage of the utils', () => {
     sendPaymentRequestToApi(100, 20);
-    expect(Utils.calculateNumber.calledOnce).to.be.true;
-    expect(Utils.calculateNumber.calledWith('SUM', 100, 20)).to.be.true;
+    expect(utilspy.calledOnce).to.be.true;
+    expect(utilspy.calledWith('SUM', 100, 20)).to.be.true;
+    utilspy.restore();
   });
 });
