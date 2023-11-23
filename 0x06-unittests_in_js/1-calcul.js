@@ -1,10 +1,9 @@
-function calculateNumber(type, a, b) {
-    let SUM, SUBTRACT, DIVIDE
-    if (type == SUM) {
+function calculateNumber(type, a, b) { 
+    if (type === 'SUM') {
         return (Math.round(a) + Math.round(b))
-    } else if (type == SUBTRACT) {
+    } else if (type === 'SUBTRACT') {
         return (Math.round(a) - Math.round(b))
-    } else if (type == DIVIDE) {
+    } else if (type === 'DIVIDE') {
         if (b === 0) {
             return 'Error'
         }
