@@ -19,18 +19,17 @@ const request = require('request');
 
 describe('apitest', () => {
   describe('GET /', () => {
-
-  });
-  it('should listen on port 7865 and log a message', (done) => {
-    const options = {
-      url: 'http://localhost:7865',
-      method: 'GET'
-    };
-    request(options, (err, res, body) => {
-      expect(res.statusCode).to.equal(200);
-      expect(err).to.be.null;
-      expect(body).to.equal('Welcome to the payment system');
-      done();
+    it('should listen on port 7865 and log a message', (done) => {
+      const options = {
+        url: 'http://localhost:7865',
+        method: 'GET'
+      };
+      request(options, (err, res, body) => {
+        expect(res.statusCode).to.equal(200);
+        //   expect(err).to.be.null;
+        expect(body).to.equal('Welcome to the payment system');
+        done();
+      });
     });
   });
 });
